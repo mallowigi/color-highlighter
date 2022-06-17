@@ -34,6 +34,7 @@ import com.intellij.openapi.Disposable;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.mallowigi.FeatureLoader;
 import com.mallowigi.config.SettingsFormUI;
+import com.mallowigi.config.newhome.NewHome;
 import net.miginfocom.swing.MigLayout;
 import org.jetbrains.annotations.NotNull;
 
@@ -44,7 +45,7 @@ import java.util.ResourceBundle;
   "FieldCanBeLocal",
   "InstanceVariableMayNotBeInitialized", "OverlyLongMethod", "StringConcatenation", "BooleanMethodNameMustStartWithQuestion", "FeatureEnvy", "ClassWithTooManyFields"})
 public final class ColorHighlighterSettingsForm extends JPanel
-  implements SettingsFormUI<ColorHighlighterSettingsForm, ColorHighlighterConfig>, Disposable {
+  implements SettingsFormUI<NewHome, ColorHighlighterConfig>, Disposable {
 
   @Override
   public @NotNull JComponent getContent() {

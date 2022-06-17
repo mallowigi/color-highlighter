@@ -35,6 +35,7 @@ import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
 import com.intellij.util.xmlb.annotations.Property
 import com.mallowigi.config.SettingsConfig
+import com.mallowigi.config.newhome.NewHome
 import com.mallowigi.listeners.ColorHighlighterNotifier
 
 @State(
@@ -43,7 +44,7 @@ import com.mallowigi.listeners.ColorHighlighterNotifier
   category = SettingsCategory.UI
 )
 class ColorHighlighterConfig : PersistentStateComponent<ColorHighlighterConfig>,
-  SettingsConfig<ColorHighlighterSettingsForm, ColorHighlighterConfig> {
+  SettingsConfig<NewHome, ColorHighlighterConfig> {
   @Property
   var isEnabled: Boolean = true
 
@@ -79,16 +80,16 @@ class ColorHighlighterConfig : PersistentStateComponent<ColorHighlighterConfig>,
 
   override fun loadState(state: ColorHighlighterConfig): Unit = XmlSerializerUtil.copyBean(state, this)
 
-  override fun applySettings(form: ColorHighlighterSettingsForm) {
-    isEnabled = form.getIsEnabled()
-    isHexDetectEnabled = form.isHexDetectEnabled
-    isJavaColorCtorEnabled = form.isJavaColorCtorEnabled
-    isJavaColorMethodEnabled = form.isJavaColorMethodEnabled
-    isKotlinColorCtorEnabled = form.isKotlinColorCtorEnabled
-    isKotlinColorMethodEnabled = form.isKotlinColorMethodEnabled
-    isRiderColorMethodEnabled = form.isRiderColorMethodEnabled
-    isTextEnabled = form.isTextEnabled
-    isMarkdownEnabled = form.isMarkdownEnabled
+  override fun applySettings(form: NewHome) {
+//    isEnabled = form.getIsEnabled()
+//    isHexDetectEnabled = form.isHexDetectEnabled
+//    isJavaColorCtorEnabled = form.isJavaColorCtorEnabled
+//    isJavaColorMethodEnabled = form.isJavaColorMethodEnabled
+//    isKotlinColorCtorEnabled = form.isKotlinColorCtorEnabled
+//    isKotlinColorMethodEnabled = form.isKotlinColorMethodEnabled
+//    isRiderColorMethodEnabled = form.isRiderColorMethodEnabled
+//    isTextEnabled = form.isTextEnabled
+//    isMarkdownEnabled = form.isMarkdownEnabled
 
     ApplicationManager.getApplication().invokeAndWait { LafManager.getInstance().updateUI() }
     fireChanged()

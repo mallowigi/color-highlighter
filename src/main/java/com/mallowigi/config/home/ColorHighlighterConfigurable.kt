@@ -28,12 +28,13 @@ package com.mallowigi.config.home
 import com.intellij.openapi.options.SearchableConfigurable
 import com.mallowigi.ColorHighlighterBundle
 import com.mallowigi.config.ConfigurableBase
+import com.mallowigi.config.newhome.NewHome
 import org.jetbrains.annotations.Nls
 import org.jetbrains.annotations.NonNls
 import java.util.*
 
 /** Configurable for Custom Associations. */
-class ColorHighlighterConfigurable : ConfigurableBase<ColorHighlighterSettingsForm, ColorHighlighterConfig>(),
+class ColorHighlighterConfigurable : ConfigurableBase<NewHome, ColorHighlighterConfig>(),
   SearchableConfigurable {
   override val config: ColorHighlighterConfig
     get() = ColorHighlighterConfig.instance
@@ -43,19 +44,19 @@ class ColorHighlighterConfigurable : ConfigurableBase<ColorHighlighterSettingsFo
 
   override fun getId(): String = ID
 
-  override fun createForm(): ColorHighlighterSettingsForm = ColorHighlighterSettingsForm()
+  override fun createForm(): NewHome = NewHome()
 
-  override fun setFormState(form: ColorHighlighterSettingsForm?, config: ColorHighlighterConfig) {
+  override fun setFormState(form: NewHome?, config: ColorHighlighterConfig) {
     form?.setFormState(config)
   }
 
-  override fun doApply(form: ColorHighlighterSettingsForm?, config: ColorHighlighterConfig): Unit =
+  override fun doApply(form: NewHome?, config: ColorHighlighterConfig): Unit =
     config.applySettings(form!!)
 
-  override fun checkModified(form: ColorHighlighterSettingsForm?, config: ColorHighlighterConfig): Boolean =
+  override fun checkModified(form: NewHome?, config: ColorHighlighterConfig): Boolean =
     checkFormModified(form!!, config)
 
-  private fun checkFormModified(form: ColorHighlighterSettingsForm, config: ColorHighlighterConfig): Boolean =
+  private fun checkFormModified(form: NewHome, config: ColorHighlighterConfig): Boolean =
     Objects.requireNonNull(form)!!.isModified(config)
 
   companion object {

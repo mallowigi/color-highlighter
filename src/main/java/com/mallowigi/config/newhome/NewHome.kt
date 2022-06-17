@@ -30,18 +30,19 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.awt.ComposePanel
+import com.mallowigi.config.SettingsFormUI
+import com.mallowigi.config.home.ColorHighlighterConfig
 import com.mallowigi.config.newhome.components.*
 import com.mallowigi.config.newhome.theme.WidgetTheme
+import javax.swing.JComponent
 import javax.swing.JPanel
 
 
-class NewHome : JPanel() {
-  init {
-    initComponents()
-  }
+class NewHome : JPanel(), SettingsFormUI<NewHome, ColorHighlighterConfig> {
+  override lateinit var content: JComponent
 
-  private fun initComponents(): ComposePanel {
-    return ComposePanel().apply {
+  private fun initComponents(): Unit {
+    content = ComposePanel().apply {
       setContent {
         WidgetTheme(darkTheme = true) {
           Surface(modifier = Modifier.fillMaxSize()) {
@@ -64,5 +65,26 @@ class NewHome : JPanel() {
         }
       }
     }
+  }
+
+  override fun setFormState(config: ColorHighlighterConfig) {
+
+  }
+
+
+  override fun init() {
+    initComponents()
+  }
+
+  override fun afterStateSet() {
+
+  }
+
+  override fun dispose() {
+
+  }
+
+  override fun isModified(config: ColorHighlighterConfig): Boolean {
+    return false
   }
 }
