@@ -37,7 +37,7 @@ plugins {
   // Java support
   id("java")
   // Kotlin support
-  id("org.jetbrains.kotlin.jvm") version "1.7.0"
+  id("org.jetbrains.kotlin.jvm") version "1.6.0"
   // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
   id("org.jetbrains.intellij") version "1.7.0-SNAPSHOT"
   // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
@@ -46,6 +46,8 @@ plugins {
   id("io.gitlab.arturbosch.detekt") version "1.20.0"
   // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
   id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
+  // Compose
+  id("org.jetbrains.compose") version "1.1.0"
 }
 
 group = properties("pluginGroup")
@@ -66,6 +68,8 @@ repositories {
   maven(url = "https://repo.eclipse.org/content/groups/releases/")
   maven(url = "https://www.jetbrains.com/intellij-repository/releases")
   maven(url = "https://www.jetbrains.com/intellij-repository/snapshots")
+  maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
+
 }
 
 dependencies {
@@ -73,6 +77,7 @@ dependencies {
   implementation("com.jgoodies:jgoodies-forms:1.9.0")
   implementation("com.thoughtworks.xstream:xstream:1.4.19")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21")
+  implementation(compose.desktop.currentOs)
 }
 
 // Configure gradle-intellij-plugin plugin.
