@@ -59,10 +59,18 @@ public final class ColorHighlighterSettingsForm extends JPanel
 
   private void toggleFeatures() {
     final FeatureLoader featureLoader = FeatureLoader.getInstance();
-    if (!featureLoader.isJavaEnabled()) javaPanel.hide();
-    if (!featureLoader.isKotlinEnabled()) kotlinPanel.hide();
-    if (!featureLoader.isRiderEnabled()) riderPanel.hide();
-    if (!featureLoader.isMarkdownEnabled()) markdownPanel.hide();
+    if (!featureLoader.isJavaEnabled()) {
+      javaPanel.hide();
+    }
+    if (!featureLoader.isKotlinEnabled()) {
+      kotlinPanel.hide();
+    }
+    if (!featureLoader.isRiderEnabled()) {
+      riderPanel.hide();
+    }
+    if (!featureLoader.isMarkdownEnabled()) {
+      markdownPanel.hide();
+    }
 
     // todo remove that once we figured how to tokenize text files
     textPanel.hide();
